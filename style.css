@@ -1,0 +1,73 @@
+/* Remove margens padrão */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family:sans-serif;
+    background-color: #303030;
+    color: rgb(255, 255, 255);
+}
+
+/* Estiliza o header */
+header {
+    width: 100%; /* Faz ocupar toda a largura */
+    background-color: #616161; /* Escolha a cor desejada */
+    padding: 10px 0; /* Adiciona um espaçamento interno */
+    padding-left: 5%;
+    color: white; /* Define a cor do texto */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between;
+}
+
+a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    align-content: center;
+}
+
+.mainSection{
+    display: flex;
+    width: 100%;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    align-items: center;
+    align-self: center;
+    align-content:center;
+    justify-content: center;
+}
+
+.nav-start{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}
+.name-column{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+.project{
+    display: flex;
+    flex-direction: column;
+    background-color: #3b3b3b;
+    width: 100%;
+    height: fit-content;
+    align-content: center;
+}
+.project-card{
+    display: flex;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-text{
+    display: flex;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    justify-content: left;
+    flex-direction: column;
+}
