@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const items = document.querySelectorAll(".project-card");
+    const cards = document.querySelectorAll(".project-card");
+    const items = document.querySelectorAll(".mainSection");
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -8,6 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }, { threshold: 0.2 }); // Ativa quando 20% do item estiver visível
-
+    cards.forEach(item => observer.observe(item));
     items.forEach(item => observer.observe(item));
 });
