@@ -53,21 +53,120 @@ a {
     width: 100%;
     height: fit-content;
     align-content: center;
+    align-items: center;
+
 }
 .project-card{
-    display: flex;
-    padding-left: 5%;
-    padding-right: 5%;
-    height: 500px;
+    width: 80%;
+    height: 40%;
     align-items: center;
     justify-content: center;
+    background-color: #303030;
+    border-radius: 12px;
+    border: 1px solid #565656; /* Borda branca */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+
+    opacity: 0; /* Começa invisível */
+    transform: translateY(20px); /* Levemente deslocada para baixo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+
+/* Quando a div entra na tela, ela aparece */
+.project-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card-content{
+    display: flex;
+    padding-right: 10%;
+    height: 100%;
+    width: 100%;
+    justify-content: start;
+    align-items: left;
+    align-content: left;
+}
+
+.circle-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espaço entre os círculos */
+    list-style: none; /* Remove os marcadores da lista */
+    padding: 0;
+}
+
+.circle-list li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: auto; /* Tamanho do círculo */
+    padding: 0 15px; /* Espaçamento horizontal interno */
+    height: 50px; /* Tamanho do círculo */
+    border: 1px solid #565656; /* Borda branca */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+    color: white; /* Cor do texto */
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 20%; /* Transforma em círculo */
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
 }
 
 .card-text{
     display: flex;
     padding-left: 5%;
     padding-right: 5%;
-
+    width: 30%;
     justify-content: left;
     flex-direction: column;
+}
+
+
+.btn-list-container{
+    height: 100%;
+    padding-bottom: 10%;
+    display: flex;
+    justify-content: flex-end; /* Coloca o item na parte inferior */
+    flex-direction: column;
+}
+
+.btn-list{
+    display: flex;
+    gap: 10%;
+    flex-direction: row;
+}
+
+/* Estado inicial: escondido e deslocado */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Quando o item entra na tela */
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.button {
+    background-color: white;
+    color: black;
+    width: 80px;
+    text-decoration: none; /* Remove o sublinhado do link */
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block; /* Garante que o botão se ajuste ao tamanho do texto */
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
 }
