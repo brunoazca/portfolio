@@ -91,9 +91,9 @@ const PAUSE_DURATION = 2000;
 const WORDS = ["Network & Telecom Student", "Tech Enthusiast"];
 const TECH_STACK = ["React", "Javascript", "Node.js", "Tailwind"];
 const SOCIAL_LINKS = [
-  { icon: Github, link: "https://github.com/EkiZR" },
-  { icon: Linkedin, link: "https://www.linkedin.com/in/ekizr/" },
-  { icon: Instagram, link: "https://www.instagram.com/ekizr._/?hl=id" }
+  { icon: Github, link: "https://github.com/brunoazca" },
+  { icon: Linkedin, link: "https://linkedin.com/in/bruno-azambuja-carvalho" },
+  { icon: Mail, link: "mailto:brunoazca@gmail.com" }
 ];
 
 const Home = () => {
