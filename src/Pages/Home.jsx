@@ -82,6 +82,7 @@ const SocialLink = memo(({ icon: Icon, link }) => (
       </div>
     </button>
   </a>
+  
 ));
 
 // Constants
