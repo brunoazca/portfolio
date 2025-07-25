@@ -38,7 +38,9 @@ jobs:
         run: NODE_ENV=production npm run build
 
       - name: Copy index.html to 404.html
-        run: cp dist/index.html dist/404.html
+        run: |
+          cp dist/index.html dist/404.html
+          echo "404.html created successfully"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

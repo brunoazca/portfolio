@@ -7,8 +7,9 @@ export default function NotFoundPage() {
   };
 
   const handleGoHome = () => {
-    // In a real app, you would use your router's navigation
-    window.location.href = '/';
+    // Use the correct base path for production
+    const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : '';
+    window.location.href = basePath + '/';
   };
 
   return (
