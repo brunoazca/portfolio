@@ -44,8 +44,8 @@ const ContactPage = () => {
     });
 
     try {
-      // Ganti dengan email Anda di FormSubmit
-      const formSubmitUrl = 'https://formsubmit.co/ekizulfarrachman@gmail.com';
+      // Form submission removed - using social links instead
+      const formSubmitUrl = '';
       
       // Siapkan data form untuk FormSubmit
       const submitData = new FormData();
