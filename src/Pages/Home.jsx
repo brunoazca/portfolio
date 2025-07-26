@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback, memo } from "react"
-import { Github, Linkedin, Mail, ExternalLink, Instagram, Sparkles } from "lucide-react"
-import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import { Github, Linkedin, Mail, ExternalLink, Instagram, Sparkles, Code2 } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { getImagePath } from '../utils/imageUtils'
@@ -105,7 +104,6 @@ const Home = () => {
   const [charIndex, setCharIndex] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
-  const [lottieError, setLottieError] = useState(false)
 
   // Optimize AOS initialization
   useEffect(() => {
@@ -155,22 +153,7 @@ const Home = () => {
     return () => clearTimeout(timeout);
   }, [handleTyping]);
 
-  // Lottie configuration - fallback to local file or remove if not available
-  const lottieOptions = {
-    src: getImagePath("Coding.json"), // Using local file with correct path
-    loop: true,
-    autoplay: true,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-      progressiveLoad: true,
-    },
-    style: { width: "100%", height: "100%" },
-    className: `w-full h-full transition-all duration-500 ${
-      isHovering 
-        ? "scale-[180%] sm:scale-[160%] md:scale-[150%] lg:scale-[145%] rotate-2" 
-        : "scale-[175%] sm:scale-[155%] md:scale-[145%] lg:scale-[140%]"
-    }`
-  };
+  // Removed problematic Lottie animation - using CSS animation instead
 
   return (
     <div className="min-h-screen bg-[#030014] overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] " id="Home">
@@ -237,24 +220,23 @@ const Home = () => {
                 <div className={`relative lg:left-12 z-10 w-full opacity-90 transform transition-transform duration-500 ${
                   isHovering ? "scale-105" : "scale-100"
                 }`}>
-                  {!lottieError ? (
-                    <DotLottieReact 
-                      {...lottieOptions} 
-                      onError={(error) => {
-                        console.warn('Lottie animation failed to load:', error);
-                        setLottieError(true);
-                      }}
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="relative group">
+                      {/* Main animated icon */}
                       <div className="relative">
-                        <div className="w-32 h-32 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
+                        <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-20 blur-2xl animate-pulse"></div>
+                        <div className="relative w-32 h-32 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center border border-white/10 backdrop-blur-sm">
+                          <Code2 className="w-16 h-16 text-blue-400 animate-bounce" />
                         </div>
                       </div>
+                      
+                      {/* Floating elements */}
+                      <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-bounce animation-delay-2000"></div>
+                      <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full animate-bounce animation-delay-4000"></div>
+                      <div className="absolute top-1/2 -right-8 w-4 h-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full animate-pulse"></div>
+                      <div className="absolute top-1/2 -left-8 w-4 h-4 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full animate-pulse animation-delay-2000"></div>
                     </div>
-                  )}
+                  </div>
                 </div>
 
                 <div className={`absolute inset-0 pointer-events-none transition-all duration-700 ${
