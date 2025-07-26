@@ -5,15 +5,6 @@ export const getImagePath = (imagePath) => {
     return imagePath;
   }
   
-  // If it's a relative path, add the correct base path for production
-  if (imagePath && imagePath.startsWith('/')) {
-    return process.env.NODE_ENV === 'production' ? `/portfolio${imagePath}` : imagePath;
-  }
-  
-  // If it's just a filename, add the correct path
-  if (imagePath && !imagePath.startsWith('/')) {
-    return process.env.NODE_ENV === 'production' ? `/portfolio/${imagePath}` : `/${imagePath}`;
-  }
-  
-  return imagePath;
+  return imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+
 }; 
