@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink, ArrowRight } from 'lucide-react';
+import { getImagePath } from '../utils/imageUtils';
 
 const CardProject = ({ Img, Title, Description, Link: ProjectLink, id }) => {
   // Handle kasus ketika ProjectLink kosong
@@ -30,7 +31,7 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id }) => {
         <div className="relative p-5 z-10">
           <div className="relative overflow-hidden rounded-lg">
             <img
-              src={Img}
+              src={getImagePath(Img)}
               alt={Title}
               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
             />

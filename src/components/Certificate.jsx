@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Modal, IconButton, Box, Fade, Backdrop, Zoom, Typography } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
+import { getImagePath } from "../utils/imageUtils"
 
 const Certificate = ({ ImgSertif, title, details }) => {
 	const [open, setOpen] = useState(false)
@@ -49,7 +50,7 @@ const Certificate = ({ ImgSertif, title, details }) => {
 					}}>
 					<img
 						className="certificate-image"
-						src={ImgSertif}
+						src={getImagePath(ImgSertif)}
 						alt="Certificate"
 						style={{
 							width: "100%",
@@ -166,7 +167,7 @@ const Certificate = ({ ImgSertif, title, details }) => {
 
 					{/* Modal Image */}
 					<img
-						src={ImgSertif}
+						src={getImagePath(ImgSertif)}
 						alt="Certificate Full View"
 						style={{
 							display: "block",

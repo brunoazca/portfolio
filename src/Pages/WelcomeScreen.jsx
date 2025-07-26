@@ -8,7 +8,7 @@ const TypewriterEffect = ({ text }) => {
   const [displayText, setDisplayText] = useState('');
   
   useEffect(() => {
-    let index = 0;
+    let index = -15;
     const timer = setInterval(() => {
       if (index <= text.length) {
         setDisplayText(text.slice(0, index));
@@ -16,7 +16,7 @@ const TypewriterEffect = ({ text }) => {
       } else {
         clearInterval(timer);
       }
-    }, 260);
+    }, 80); // velocidade aumentada de 260ms para 80ms
     
     return () => clearInterval(timer);
   }, [text]);

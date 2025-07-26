@@ -5,6 +5,7 @@ import {
   ChevronRight, Layers, Layout, Globe, Package, Cpu, Code,
 } from "lucide-react";
 import Swal from 'sweetalert2';
+import { getImagePath } from "../utils/imageUtils";
 
 const TECH_ICONS = {
   React: Globe,
@@ -224,7 +225,7 @@ const ProjectDetails = () => {
               
                 <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <img
-                  src={project.Img}
+                  src={getImagePath(project.Img)}
                   alt={project.Title}
                   className="w-full  object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
                   onLoad={() => setIsImageLoaded(true)}

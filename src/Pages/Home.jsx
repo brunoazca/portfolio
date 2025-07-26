@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail, ExternalLink, Instagram, Sparkles } from "lucid
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { getImagePath } from '../utils/imageUtils'
 
 // Memoized Components
 const StatusBadge = memo(() => (
@@ -104,6 +105,7 @@ const Home = () => {
   const [charIndex, setCharIndex] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
+  const [lottieError, setLottieError] = useState(false)
 
   // Optimize AOS initialization
   useEffect(() => {
@@ -153,9 +155,9 @@ const Home = () => {
     return () => clearTimeout(timeout);
   }, [handleTyping]);
 
-  // Lottie configuration
+  // Lottie configuration - fallback to local file or remove if not available
   const lottieOptions = {
-    src: "https://lottie.host/58753882-bb6a-49f5-a2c0-950eda1e135a/NLbpVqGegK.lottie",
+    src: getImagePath("Coding.json"), // Using local file with correct path
     loop: true,
     autoplay: true,
     rendererSettings: {
@@ -235,7 +237,24 @@ const Home = () => {
                 <div className={`relative lg:left-12 z-10 w-full opacity-90 transform transition-transform duration-500 ${
                   isHovering ? "scale-105" : "scale-100"
                 }`}>
-                  <DotLottieReact {...lottieOptions} />
+                  {!lottieError ? (
+                    <DotLottieReact 
+                      {...lottieOptions} 
+                      onError={(error) => {
+                        console.warn('Lottie animation failed to load:', error);
+                        setLottieError(true);
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="relative">
+                        <div className="w-32 h-32 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <div className={`absolute inset-0 pointer-events-none transition-all duration-700 ${

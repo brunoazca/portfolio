@@ -5,6 +5,16 @@ export const getImagePath = (imagePath) => {
     return imagePath;
   }
   
-  return imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
-
+  // If it's a relative path starting with /, remove the leading slash
+  if (imagePath && imagePath.startsWith('/')) {
+    imagePath = imagePath.substring(1);
+  }
+  
+  // For production (GitHub Pages), add the /portfolio/ prefix
+  if (process.env.NODE_ENV === 'production') {
+    return `/portfolio/${imagePath}`;
+  }
+  
+  // For development, just add the leading slash
+  return `/${imagePath}`;
 }; 

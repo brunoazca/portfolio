@@ -145,7 +145,7 @@ const ContactPage = () => {
                   Contact
                 </h2>
                 <p className="text-gray-400">
-                  Get in touch and see my work with the links below.
+                  Get in touch and see my work through the links below.
                 </p>
               </div>
               <Share2 className="w-10 h-10 text-[#6366f1] opacity-50" />
