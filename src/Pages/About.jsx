@@ -50,7 +50,7 @@ const ProfileImage = memo(() => (
           <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 via-transparent to-blue-500/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden sm:block" />
           
           <img
-            src="/Photo.jpg"
+            src="/Photo.png"
             alt="Profile"
             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
             loading="lazy"
@@ -168,7 +168,7 @@ const AboutPage = () => {
       icon: Award,
       color: "from-[#a855f7] to-[#6366f1]",
       value: totalCertificates,
-      label: "Certificates",
+      label: "Awards",
       description: "Professional skills validated",
       animation: "fade-up",
     },
@@ -205,7 +205,7 @@ const AboutPage = () => {
                 data-aos="fade-right"
                 data-aos-duration="1300"
               >
-                Bruno Azambuja Carvalho
+                Bruno Azambuja
               </span>
             </h2>
             
@@ -214,9 +214,10 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-             Seorang lulusan Teknik Jaringan Komputer dan Telekomunikasi yang memiliki ketertarikan besar dalam pengembangan Front-End. Saya berfokus pada menciptakan pengalaman digital yang menarik dan selalu berusaha memberikan solusi terbaik dalam setiap proyek yang saya kerjakan.
+                 I'm a Computer Engineering student at PUC-Rio currently working as iOS Developer at Apple Developer Academy PUC-Rio.
+                 I'm passionate about developing projects, solving problems and leading teams, always challenging myself to participate in contests and hackathons.
+                 These experiences have made me not only improve my hard skills, but also to develop teamwork, leadership and communication skills.
             </p>
-
                {/* Quote Section */}
       <div 
         className="relative bg-gradient-to-br from-[#6366f1]/5 via-transparent to-[#a855f7]/5 border border-gradient-to-r border-[#6366f1]/30 rounded-2xl p-4 my-6 backdrop-blur-md shadow-2xl overflow-hidden"
@@ -235,7 +236,7 @@ const AboutPage = () => {
         </div>
         
         <blockquote className="text-gray-300 text-center lg:text-left italic font-medium text-sm relative z-10 pl-6">
-          "Leveraging AI as a professional tool, not a replacement."
+          "Innovation is not a choice, it's a necessity."
         </blockquote>
       </div>
 

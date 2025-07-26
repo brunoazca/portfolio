@@ -104,6 +104,12 @@ function a11yProps(index) {
 
 // techStacks tetap sama
 const techStacks = [
+  { icon: "Swift.png", language: "Swift" },
+  { icon: "SwiftUI.png", language: "SwiftUI" },
+  { icon: "ARKit.png", language: "ARKit" },
+  { icon: "CloudKit.png", language: "CloudKit" },
+  { icon: "CoreML.png", language: "CoreML" },
+  { icon: "RealityKit.png", language: "RealityKit" },
   { icon: "html.svg", language: "HTML" },
   { icon: "css.svg", language: "CSS" },
   { icon: "javascript.svg", language: "JavaScript" },
@@ -115,7 +121,8 @@ const techStacks = [
   { icon: "firebase.svg", language: "Firebase" },
   { icon: "MUI.svg", language: "Material UI" },
   { icon: "vercel.svg", language: "Vercel" },
-  { icon: "SweetAlert.svg", language: "SweetAlert2" },
+  
+
 ];
 
 export default function FullWidthTabs() {
@@ -290,7 +297,7 @@ export default function FullWidthTabs() {
             />
             <Tab
               icon={<Award className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Certificates"
+              label="Awards"
               {...a11yProps(1)}
             />
             <Tab
@@ -345,7 +352,11 @@ export default function FullWidthTabs() {
                     data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
                     data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
                   >
-                    <Certificate ImgSertif={certificate.Img} />
+                    <Certificate 
+                      ImgSertif={certificate.Img} 
+                      title={certificate.Title} 
+                      details={certificate.Details} 
+                    />
                   </div>
                 ))}
               </div>
