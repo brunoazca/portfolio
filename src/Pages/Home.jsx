@@ -97,6 +97,8 @@ const SOCIAL_LINKS = [
   { icon: Mail, link: "mailto:brunoazca@gmail.com" }
 ];
 
+const USE_GIF_ANIMATION = false; // Altere para true para usar o GIF antigo
+
 const Home = () => {
   const [text, setText] = useState("")
   const [isTyping, setIsTyping] = useState(true)
@@ -205,7 +207,7 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right Column - Optimized Lottie Animation */}
+            {/* Right Column - Animation or GIF */}
             <div className="w-full py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative flex items-center justify-center order-2 lg:order-2 mt-8 lg:mt-0"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -220,23 +222,30 @@ const Home = () => {
                 <div className={`relative lg:left-12 z-10 w-full opacity-90 transform transition-transform duration-500 ${
                   isHovering ? "scale-105" : "scale-100"
                 }`}>
-                  <div className="w-full h-full flex items-center justify-center">
-                    <div className="relative group">
-                      {/* Main animated icon */}
-                      <div className="relative">
-                        <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-20 blur-2xl animate-pulse"></div>
-                        <div className="relative w-32 h-32 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center border border-white/10 backdrop-blur-sm">
-                          <Code2 className="w-16 h-16 text-blue-400 animate-bounce" />
+                  {USE_GIF_ANIMATION ? (
+                    <img
+                      src={getImagePath('Coding.gif')}
+                      alt="Animated Coding GIF"
+                      className="w-64 h-64 object-contain mx-auto rounded-2xl shadow-lg border border-white/10 bg-black/10"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="relative group">
+                        {/* Main animated icon */}
+                        <div className="relative">
+                          <div className="absolute -inset-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-20 blur-3xl animate-pulse"></div>
+                          <div className="relative w-48 h-48 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center border border-white/10 backdrop-blur-sm">
+                            <Code2 className="w-24 h-24 text-blue-400 animate-bounce" />
+                          </div>
                         </div>
+                        {/* Floating elements */}
+                        <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-bounce animation-delay-2000"></div>
+                        <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full animate-bounce animation-delay-4000"></div>
+                        <div className="absolute top-1/2 -right-12 w-6 h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full animate-pulse"></div>
+                        <div className="absolute top-1/2 -left-12 w-6 h-6 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full animate-pulse animation-delay-2000"></div>
                       </div>
-                      
-                      {/* Floating elements */}
-                      <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-bounce animation-delay-2000"></div>
-                      <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full animate-bounce animation-delay-4000"></div>
-                      <div className="absolute top-1/2 -right-8 w-4 h-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full animate-pulse"></div>
-                      <div className="absolute top-1/2 -left-8 w-4 h-4 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full animate-pulse animation-delay-2000"></div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 <div className={`absolute inset-0 pointer-events-none transition-all duration-700 ${
