@@ -1,6 +1,7 @@
 # 💼 My Portfolio
 
 Welcome to my personal portfolio website - https://brunoazca.github.io/portfolio/!
+
 Here, you’ll find a curated showcase of my projects, the technologies I work with, awards I've received, and a bit about who I am.
 
 Whether you're a recruiter, collaborator, or just curious, feel free to explore and learn more about my journey in tech and design.
