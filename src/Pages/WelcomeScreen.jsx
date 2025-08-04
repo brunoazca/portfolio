@@ -11,7 +11,11 @@ const TypewriterEffect = ({ text }) => {
     let index = -15;
     const timer = setInterval(() => {
       if (index <= text.length) {
-        setDisplayText(text.slice(0, index));
+        if(index < 0) {
+          setDisplayText(text.slice(0, 0));
+        } else {
+          setDisplayText(text.slice(0, index));
+        }
         index++;
       } else {
         clearInterval(timer);
